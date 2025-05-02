@@ -1,0 +1,28 @@
+{
+  "manifest_version": 2,
+  "name": "background-color-picker",
+  "version": "1.0",
+  "description": "Adds a color picker to adjust the body style background",
+  "icons": {
+      "48": "BYR_color_wheel.png",
+      "96": "BYR_color_wheel.png"
+  },
+
+  "browser_action": {
+      "default_icon": "BYR_color_wheel.png",
+      "default_title": "Change Background"
+  },
+
+  "background": {
+      "page": "background.html",
+      "persistent": true
+  },
+
+  "content_scripts": [
+      {
+      "matches": ["<all_urls>"],
+      "js": ["background-color-picker.js"]
+      }
+  ]
+  
+}
