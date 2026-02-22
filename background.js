@@ -56,6 +56,17 @@ browser.runtime.onMessage.addListener(initialColorMessage);
 
 browser.browserAction.onClicked.addListener(openPicker);
 
+browser.browserAction.onClicked.addListener( function() {
+  selectedColor = "white";
+  browser.tabs
+    .query({
+      currentWindow: true,
+      active: true,
+    })
+    .then(sendMessageToTabs)
+    .catch(onError);
+});
+
 document.getElementById("c").addEventListener("change", function() {
   selectedColor = document.getElementById("c").value;
   browser.tabs

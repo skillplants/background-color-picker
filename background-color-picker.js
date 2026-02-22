@@ -10,7 +10,6 @@ function sendBackground() {
 window.addEventListener("pageshow", sendBackground)
 
 browser.runtime.onMessage.addListener((request) => {
-     document.body.style.background = "white";
     document.body.style.background = request.color;
     console.log("Message from the background script:");
     console.log(request.color);
